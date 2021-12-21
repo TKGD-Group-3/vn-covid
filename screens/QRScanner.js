@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
+import Popup from "../components/Popup";
+
 export default function QRScanner() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [text, setText] = useState("Not yet scanned");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const askForCameraPermission = () => {
     BarCodeScanner.requestPermissionsAsync().then(({ status }) => {
@@ -19,7 +22,7 @@ export default function QRScanner() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    setModalVisible(true);
     setText(`${type} ${data}`);
   };
 
@@ -58,6 +61,7 @@ export default function QRScanner() {
           color="tomato"
         />
       )}
+      <Popup visible={modalVisible} handleClose={() => setModalVisible(false)} />
       {/* <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
@@ -73,6 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 50,
   },
   barcodebox: {
     alignItems: "center",

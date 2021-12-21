@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Button, Pressable, Modal } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet, Pressable, Modal } from "react-native";
 import { FontAwesome5, MaterialIcons } from "react-native-vector-icons";
 
-export default function Popup() {
-  const [modalVisible, setModalVisible] = useState(false);
+export default function Popup({ visible, handleClose }) {
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
-        visible={modalVisible}
+        visible={visible}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+          handleClose();
         }}
       >
         <View style={styles.centeredView}>
@@ -36,7 +35,7 @@ export default function Popup() {
             <View style={styles.buttonView}>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
+                onPress={handleClose}
               >
                 <Text style={styles.textStyle}>Quay lại</Text>
               </Pressable>
@@ -44,12 +43,6 @@ export default function Popup() {
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
     </View>
   );
 }

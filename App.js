@@ -2,12 +2,11 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 
 import QRScanner from "./screens/QRScanner";
-import Popup from "./components/Popup";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Popup />
+      <QRScanner />
     </View>
   );
 }
