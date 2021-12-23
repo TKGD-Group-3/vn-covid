@@ -1,21 +1,29 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
 
-import QRScanner from "./screens/QRScanner";
+// import QRScanner from "./screens/QRScanner";
+import Index from "./screens/Index";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <QRScanner />
-    </View>
+    <SafeAreaView style={styles.AndroidSafeArea}>
+      <Index />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  AndroidSafeArea: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+// });
