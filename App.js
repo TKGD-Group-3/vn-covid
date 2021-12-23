@@ -1,13 +1,25 @@
 import React from "react";
 import { StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
-
-// import QRScanner from "./screens/QRScanner";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+const Stack = createNativeStackNavigator();
 import Index from "./screens/Index";
+import QRScanner from "./screens/QRScanner";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.AndroidSafeArea}>
-      <Index />
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Index"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Index" component={Index} />
+          <Stack.Screen name="QRScanner" component={QRScanner} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 }

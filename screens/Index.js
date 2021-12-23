@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { View, ScrollView, Text, StyleSheet, Image } from "react-native";
-import { Avatar } from "react-native-elements";
+import React from "react";
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Image,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 
-const Index = () => {
+const Index = ({ navigation }) => {
   return (
     <View>
       <View style={styles.covidCard}>
@@ -53,13 +60,16 @@ const Index = () => {
           style={{ width: 25, height: 25 }}
           source={require("../assets/Bell_Icon.png")}
         />
-        <View style={styles.center}>
+        <TouchableOpacity
+          style={styles.center}
+          onPress={() => navigation.push("QRScanner")}
+        >
           <Image
             style={{ width: 50, height: 50 }}
             source={require("../assets/QR_Icon.png")}
           />
           <Text style={styles.tableHeaderText}>Quét QR</Text>
-        </View>
+        </TouchableOpacity>
         <Image
           style={{ width: 25, height: 25 }}
           source={require("../assets/Menu_Icon.png")}
