@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   ScrollView,
   Text,
   StyleSheet,
   Image,
-  Button,
+  Pressable,
   TouchableOpacity,
 } from "react-native";
 
+import UserPopup from "../components/UserPopup";
+
 const Index = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View>
       <View style={styles.covidCard}>
         <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
         <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
-        <Image
-          style={styles.covidCardImage}
-          source={require("../assets/QRCode.png")}
-        />
+        <Pressable onPress={() => setModalVisible(true)}>
+          <Image
+            style={styles.covidCardImage}
+            source={require("../assets/QRCode.png")}
+          />
+        </Pressable>
+        <UserPopup visible={modalVisible} handleClose={() => setModalVisible(false)} />
         <Text style={styles.covidCardText}>Nguyễn Văn A</Text>
         <Text style={styles.covidCardText}>Nam - 199x</Text>
         <View style={styles.flexCenter}>
