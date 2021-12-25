@@ -137,7 +137,7 @@ export default function UserPopup({ visible, handleClose }) {
                 style={[styles.button, styles.buttonClose]}
                 onPress={handleClose}
               >
-                <Text style={styles.textStyle}>Quay lại</Text>
+                <Text style={styles.textStyle}>Đóng</Text>
               </Pressable>
             </View>
           </View>

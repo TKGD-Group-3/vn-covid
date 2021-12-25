@@ -4,7 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Stack = createNativeStackNavigator();
 import Index from "./screens/Index";
+import NotificationScreen from "./screens/NotificationScreen";
 import QRScanner from "./screens/QRScanner";
+import MenuScreen from "./screens/MenuScreen";
 
 export default function App() {
   return (
@@ -17,6 +19,11 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Index" component={Index} />
+          <Stack.Screen name="MenuScreen" component={MenuScreen} />
+          <Stack.Screen
+            name="NotificationScreen"
+            component={NotificationScreen}
+          />
           <Stack.Screen name="QRScanner" component={QRScanner} />
         </Stack.Navigator>
       </NavigationContainer>

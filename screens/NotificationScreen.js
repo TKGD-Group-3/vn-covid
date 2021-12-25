@@ -11,7 +11,7 @@ import { Icon } from "react-native-elements";
 
 import UserPopup from "../components/UserPopup";
 
-const Index = ({ navigation }) => {
+const NotificationScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -37,42 +37,65 @@ const Index = ({ navigation }) => {
         </View>
       </View>
       <View style={{ flex: 1 }}>
-        <Text style={styles.subHeader}>Thông tin ca nhiễm Covid - 19</Text>
-        <View style={styles.table}>
-          <Text style={styles.tableHeaderText}></Text>
-          <Text style={styles.tableHeaderText}>Hôm qua</Text>
-          <Text style={styles.tableHeaderText}>Hôm nay</Text>
+        <View>
+          <View style={{ alignItems: "center", margin: 5 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                width: "80%",
+              }}
+            >
+              <Icon
+                style={{ width: 25, height: 25 }}
+                name="circle"
+                type="font-awesome"
+                color="gray"
+              />
+              <Text>14:07 26/11/2021</Text>
+            </View>
+          </View>
+          <View style={styles.center}>
+            <Text style={styles.notification}>
+              Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào thời
+              gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
+            </Text>
+          </View>
         </View>
-        <View style={styles.table}>
-          <Text style={styles.tableContentText}>Phường 4</Text>
-          <Text style={styles.tableContentText}>123</Text>
-          <Text style={styles.tableContentText}>456</Text>
-        </View>
-        <View style={styles.table}>
-          <Text style={styles.tableContentText}>Quận 5</Text>
-          <Text style={styles.tableContentText}>456</Text>
-          <Text style={styles.tableContentText}>789</Text>
-        </View>
-        <View style={styles.table}>
-          <Text style={styles.tableContentText}>TP.HCM</Text>
-          <Text style={styles.tableContentText}>741</Text>
-          <Text style={styles.tableContentText}>852</Text>
-        </View>
-        <View style={styles.center}>
-          <Text style={styles.notification}>
-            Nơi bạn đang sống đang là vùng dịch cấp độ 4. Yêu cầu người dân chỉ
-            ra khỏi nhà trong trường hợp thật sự cần thiết.
-          </Text>
+        <View>
+          <View style={{ alignItems: "center", margin: 5 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                width: "80%",
+              }}
+            >
+              <Icon
+                style={{ width: 25, height: 25 }}
+                name="circle"
+                type="font-awesome"
+                color="gray"
+              />
+              <Text>14:07 26/11/2021</Text>
+            </View>
+          </View>
+          <View style={styles.center}>
+            <Text style={styles.notification}>
+              Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào thời
+              gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
+            </Text>
+          </View>
         </View>
       </View>
       <View style={styles.menu}>
         <TouchableOpacity
           style={styles.center}
-          onPress={() => navigation.push("NotificationScreen")}
+          onPress={() => navigation.push("Index")}
         >
           <Icon
             style={{ width: 25, height: 25 }}
-            name="bell"
+            name="home"
             type="font-awesome"
             color="gray"
           />
@@ -137,7 +160,7 @@ const styles = StyleSheet.create({
   covidCard: {
     flex: 2,
     paddingTop: 5,
-    paddingBottom: 20,
+    paddingBottom: 30,
     backgroundColor: "#30B55C",
     alignItems: "center",
   },
@@ -172,4 +195,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Index;
+export default NotificationScreen;
