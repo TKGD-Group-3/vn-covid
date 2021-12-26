@@ -37,7 +37,7 @@ export default function Popup({ visible, handleClose }) {
                 style={[styles.button, styles.buttonClose]}
                 onPress={handleClose}
               >
-                <Text style={styles.textStyle}>Đóng</Text>
+                <Text style={styles.textStyle}>Quay lại</Text>
               </Pressable>
             </View>
           </View>

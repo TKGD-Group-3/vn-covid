@@ -4,7 +4,7 @@ import { BarCodeScanner } from "expo-barcode-scanner";
 
 import Popup from "../components/Popup";
 
-export default function QRScanner() {
+export default function QRScanner({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [text, setText] = useState("Not yet scanned");
@@ -46,6 +46,9 @@ export default function QRScanner() {
   }
   return (
     <View style={styles.container}>
+      <Text style={{ fontSize: 20, paddingVertical: 20 }}>
+        Đưa QR vào khu vực camera để quét
+      </Text>
       <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -56,12 +59,17 @@ export default function QRScanner() {
 
       {scanned && (
         <Button
-          title={"Scan Again?"}
+          title={"Quét lại"}
           onPress={() => setScanned(false)}
           color="tomato"
         />
       )}
-      <Popup visible={modalVisible} handleClose={() => setModalVisible(false)} />
+      <Text style={{ padding: 5 }} />
+      <Button title="Quay lại" onPress={() => navigation.goBack()} />
+      <Popup
+        visible={modalVisible}
+        handleClose={() => setModalVisible(false)}
+      />
       {/* <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
@@ -77,7 +85,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 50,
   },
   barcodebox: {
     alignItems: "center",
