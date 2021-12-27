@@ -50,7 +50,7 @@ export default function PhanAnh({ navigation }) {
                         fontSize: FONT_SIZE,
                     }}
                     multiline={true}
-                    placeholder="Nhập nội dung phản ánh."
+                    placeholder="Nhập nội dung phản ánh..."
                     keyboardType="numeric"
                 />
             </View>
@@ -130,7 +130,7 @@ export default function PhanAnh({ navigation }) {
                     marginTop: 15,
                     borderWidth: 0.5,
                 }}>
-                <Text style={{ padding: 15, fontSize: FONT_SIZE }}>
+                <Text style={{ padding: 15, fontSize: FONT_SIZE,color:"#9F9F9F" }}>
                     Địa điểm phản ánh
                 </Text>
             </View>
@@ -145,7 +145,7 @@ export default function PhanAnh({ navigation }) {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
-                <Text style={{ padding: 15, fontSize: FONT_SIZE }}>
+                <Text style={{ padding: 15, fontSize: FONT_SIZE,color:"#9F9F9F" }}>
                     Tỉnh / Thành <Text style={{ color: 'red' }}>*</Text>
                 </Text>
                 <View style={{ marginRight: 15 }}>
@@ -170,7 +170,7 @@ export default function PhanAnh({ navigation }) {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
-                <Text style={{ padding: 15, fontSize: FONT_SIZE }}>
+                <Text style={{ padding: 15, fontSize: FONT_SIZE,color:"#9F9F9F" }}>
                     Quận / Huyện <Text style={{ color: 'red' }}>*</Text>
                 </Text>
                 <View style={{ marginRight: 15 }}>
@@ -194,7 +194,7 @@ export default function PhanAnh({ navigation }) {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
-                <Text style={{ padding: 15, fontSize: FONT_SIZE }}>
+                <Text style={{ padding: 15, fontSize: FONT_SIZE,color:"#9F9F9F" }}>
                     Phường / Xã <Text style={{ color: 'red' }}>*</Text>
                 </Text>
                 <View style={{ marginRight: 15 }}>

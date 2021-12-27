@@ -18,7 +18,7 @@ export default function NoiDaDen({ navigation }) {
 
     return (
         <View style={{ marginLeft: 10, marginTop: 20 }}>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row',alignItems:'center' }}>
                 <Icon
                     name={'chevron-left'}
                     color="#30B55C"
@@ -31,7 +31,7 @@ export default function NoiDaDen({ navigation }) {
                     <Text style={styles.textHeader}> Nơi đã đến </Text>
                 </View>
             </View>
-            <View style={styles.header}>
+            <View style={{flexDirection:'row',alignItems:'center',marginTop:20}}>
                 <Switch
                     trackColor={{ false: '#767577', true: '#30B55C' }}
                     thumbColor={isEnabled ? '#ffffff' : '#ffffff'}
@@ -40,17 +40,17 @@ export default function NoiDaDen({ navigation }) {
                     value={isEnabled}
                 />
                 {isEnabled ? (
-                    <Text style={{ marginLeft: 30, fontSize: 18 }}>
+                    <Text style={{ marginLeft: 10, fontSize: 18 }}>
                         Gạt để tắt tính năng nơi đã đến
                     </Text>
                 ) : (
-                    <Text style={{ marginLeft: 30, fontSize: 18 }}>
+                    <Text style={{ marginLeft: 10, fontSize: 18 }}>
                         Gạt để bật tính năng nơi đã đến
                     </Text>
                 )}
             </View>
             <View style={styles.header}>
-                <View style={{ alignItems: 'center', marginTop: 4 }}>
+                <View style={{ alignItems: 'center', marginTop: 4,marginLeft:10 }}>
                     <View style={styles.circle}></View>
                     <View style={styles.verticalLine}></View>
                     <View style={styles.circle}></View>
