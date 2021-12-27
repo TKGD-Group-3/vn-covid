@@ -34,7 +34,7 @@ const MenuScreen = ({ navigation }) => {
                 </View>
               </View>
             </Pressable>
-            <Pressable>
+            <Pressable onPress={()=>navigation.push("KhaiBaoYTe")} >
               <View style={styles.option}>
                 <View style={{ flex: 1, flexDirection: "row" }}>
                   <FontAwesome5
@@ -49,7 +49,7 @@ const MenuScreen = ({ navigation }) => {
                 </View>
               </View>
             </Pressable>
-            <Pressable>
+            <Pressable onPress={()=>navigation.push("PhanAnh")}>
               <View style={styles.option}>
                 <View style={{ flex: 1, flexDirection: "row" }}>
                   <FontAwesome5
@@ -69,7 +69,7 @@ const MenuScreen = ({ navigation }) => {
                 </View>
               </View>
             </Pressable>
-            <Pressable>
+            <Pressable onPress={()=>navigation.push("NoiDaDen")}>
               <View style={styles.option}>
                 <View style={{ flex: 1, flexDirection: "row" }}>
                   <FontAwesome5

@@ -7,6 +7,9 @@ import Index from "./screens/Index";
 import NotificationScreen from "./screens/NotificationScreen";
 import QRScanner from "./screens/QRScanner";
 import MenuScreen from "./screens/MenuScreen";
+import PhanAnh from "./screens/PhanAnh";
+import NoiDaDen from "./screens/NoiDaDen";
+import KhaiBaoYTe from "./screens/KhaiBaoYTe";
 
 export default function App() {
   return (
@@ -25,6 +28,10 @@ export default function App() {
             component={NotificationScreen}
           />
           <Stack.Screen name="QRScanner" component={QRScanner} />
+          <Stack.Screen name="PhanAnh" component={PhanAnh} />
+          <Stack.Screen name="NoiDaDen" component={NoiDaDen} />
+          <Stack.Screen name="KhaiBaoYTe" component={KhaiBaoYTe} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
