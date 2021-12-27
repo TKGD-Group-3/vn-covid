@@ -13,8 +13,7 @@ import {
 } from 'react-native';
 
 function goBack() {}
-function onGuiPhanAnh() {}
-export default function PhanAnh() {
+export default function KhaiBaoYTe() {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
