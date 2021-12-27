@@ -37,54 +37,70 @@ const NotificationScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={{ flex: 1 }}>
-        <View>
-          <View style={{ alignItems: "center", margin: 5 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                width: "80%",
-              }}
-            >
-              <Icon
-                style={{ width: 25, height: 25 }}
-                name="circle"
-                type="font-awesome"
-                color="gray"
-              />
-              <Text>14:07 26/11/2021</Text>
+        <View
+          style={{
+            margin: 5,
+            backgroundColor: "white",
+            borderRadius: 20,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 4,
+            elevation: 5,
+          }}
+        >
+          <View style={{ marginTop: 10 }}>
+            <View style={{ alignItems: "center", margin: 5 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  width: "80%",
+                }}
+              >
+                <Icon
+                  style={{ width: 25, height: 25 }}
+                  name="circle"
+                  type="font-awesome"
+                  color="gray"
+                />
+                <Text>14:07 26/11/2021</Text>
+              </View>
+            </View>
+            <View style={styles.center}>
+              <Text style={styles.notification}>
+                Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào
+                thời gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
+              </Text>
             </View>
           </View>
-          <View style={styles.center}>
-            <Text style={styles.notification}>
-              Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào thời
-              gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
-            </Text>
-          </View>
-        </View>
-        <View>
-          <View style={{ alignItems: "center", margin: 5 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                width: "80%",
-              }}
-            >
-              <Icon
-                style={{ width: 25, height: 25 }}
-                name="circle"
-                type="font-awesome"
-                color="gray"
-              />
-              <Text>14:07 26/11/2021</Text>
+          <View>
+            <View style={{ alignItems: "center", margin: 5 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  width: "80%",
+                }}
+              >
+                <Icon
+                  style={{ width: 25, height: 25 }}
+                  name="circle"
+                  type="font-awesome"
+                  color="gray"
+                />
+                <Text>14:07 26/11/2021</Text>
+              </View>
             </View>
-          </View>
-          <View style={styles.center}>
-            <Text style={styles.notification}>
-              Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào thời
-              gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
-            </Text>
+            <View style={styles.center}>
+              <Text style={styles.notification}>
+                Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào
+                thời gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
+              </Text>
+            </View>
           </View>
         </View>
       </View>

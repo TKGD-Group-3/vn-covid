@@ -21,10 +21,10 @@ const MenuScreen = ({ navigation }) => {
           <View style={styles.modalView}>
             <Pressable>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="qrcode"
-                    size={30}
+                    size={40}
                     color="#30B55C"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
@@ -34,12 +34,12 @@ const MenuScreen = ({ navigation }) => {
                 </View>
               </View>
             </Pressable>
-            <Pressable onPress={()=>navigation.push("KhaiBaoYTe")} >
+            <Pressable onPress={() => navigation.push("KhaiBaoYTe")}>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="notes-medical"
-                    size={30}
+                    size={40}
                     color="#30B55C"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
@@ -49,41 +49,31 @@ const MenuScreen = ({ navigation }) => {
                 </View>
               </View>
             </Pressable>
-            <Pressable onPress={()=>navigation.push("PhanAnh")}>
+            <Pressable onPress={() => navigation.push("PhanAnh")}>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="comment-alt"
-                    size={30}
+                    size={40}
                     color="#33B35D"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
-                  <View
-                    style={[
-                      styles.optionInformation,
-                      { marginTop: 5, marginLeft: -14 },
-                    ]}
-                  >
+                  <View style={[styles.optionInformation]}>
                     <Text style={styles.optionName}>Gửi phản ánh</Text>
                   </View>
                 </View>
               </View>
             </Pressable>
-            <Pressable onPress={()=>navigation.push("NoiDaDen")}>
+            <Pressable onPress={() => navigation.push("NoiDaDen")}>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="map-pin"
-                    size={30}
+                    size={40}
                     color="#FFBC01"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
-                  <View
-                    style={[
-                      styles.optionInformation,
-                      { marginTop: 5, marginLeft: -14 },
-                    ]}
-                  >
+                  <View style={[styles.optionInformation]}>
                     <Text style={styles.optionName}>Nơi đã đến</Text>
                   </View>
                 </View>
@@ -92,19 +82,14 @@ const MenuScreen = ({ navigation }) => {
 
             <Pressable>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="cog"
-                    size={30}
+                    size={40}
                     color="gray"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
-                  <View
-                    style={[
-                      styles.optionInformation,
-                      { marginTop: 5, marginLeft: -14 },
-                    ]}
-                  >
+                  <View style={[styles.optionInformation]}>
                     <Text style={styles.optionName}>Cài đặt</Text>
                   </View>
                 </View>
@@ -112,19 +97,14 @@ const MenuScreen = ({ navigation }) => {
             </Pressable>
             <Pressable>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="book"
-                    size={30}
+                    size={40}
                     color="#1EBA9A"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
-                  <View
-                    style={[
-                      styles.optionInformation,
-                      { marginTop: 5, marginLeft: -14 },
-                    ]}
-                  >
+                  <View style={[styles.optionInformation]}>
                     <Text style={styles.optionName}>Hướng dẫn</Text>
                   </View>
                 </View>
@@ -132,19 +112,14 @@ const MenuScreen = ({ navigation }) => {
             </Pressable>
             <Pressable>
               <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
                   <FontAwesome5
                     name="info-circle"
-                    size={30}
+                    size={40}
                     color="#F59CE1"
                     style={{ marginTop: 7, paddingRight: 30 }}
                   />
-                  <View
-                    style={[
-                      styles.optionInformation,
-                      { marginTop: 5, marginLeft: -14 },
-                    ]}
-                  >
+                  <View style={[styles.optionInformation]}>
                     <Text style={styles.optionName}>Giới thiệu</Text>
                   </View>
                 </View>
