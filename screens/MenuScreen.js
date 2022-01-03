@@ -96,7 +96,7 @@ const MenuScreen = ({ navigation }) => {
           onPress={() => navigation.push("NotificationScreen")}
         >
           <Icon
-            style={{ width: 25, height: 25 }}
+            style={{ width: 25, height: 25, marginBottom: 15 }}
             name="bell"
             type="font-awesome"
             color="gray"
@@ -120,7 +120,7 @@ const MenuScreen = ({ navigation }) => {
           onPress={() => navigation.push("Index")}
         >
           <Icon
-            style={{ width: 25, height: 25 }}
+            style={{ width: 25, height: 25, marginBottom: 15 }}
             name="home"
             type="font-awesome"
             color="gray"
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "flex-end",
-    marginBottom: 30,
+    marginBottom: 20,
   },
   textQr: {
     color: "#30B55C",

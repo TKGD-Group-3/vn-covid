@@ -82,7 +82,7 @@ const Index = ({ navigation }) => {
           onPress={() => navigation.push("NotificationScreen")}
         >
           <Icon
-            style={{ width: 25, height: 25 }}
+            style={{ width: 25, height: 25, marginBottom: 15 }}
             name="bell"
             type="font-awesome"
             color="gray"
@@ -106,7 +106,7 @@ const Index = ({ navigation }) => {
           onPress={() => navigation.push("MenuScreen")}
         >
           <Icon
-            style={{ width: 25, height: 25 }}
+            style={{ width: 25, height: 25, marginBottom: 15 }}
             name="ellipsis-v"
             type="font-awesome"
             color="gray"
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "flex-end",
-    marginBottom: 30,
+    marginBottom: 20,
   },
   textQr: {
     color: "#30B55C",
