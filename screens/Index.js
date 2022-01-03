@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Icon } from "react-native-elements";
-
+import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
 
 const Index = ({ navigation }) => {
@@ -24,15 +24,24 @@ const Index = ({ navigation }) => {
         <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
         <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
         <Pressable onPress={() => setModalVisible(true)}>
-          <Image
+          {/* <Image
             style={styles.covidCardImage}
             source={require("../assets/QRCode.png")}
-          />
+          /> */}
+          <View style={{backgroundColor: "white", padding: 20, borderRadius: 45}}>
+            <QRCode value="hello world" size={200} />
+          </View>
         </Pressable>
         <Text style={styles.covidCardText}>Nguyễn Văn A</Text>
         <Text style={styles.covidCardText}>Nam - 199x</Text>
         <View style={styles.vaccine}>
-          <Image source={require("../assets/Verified_Icon.png")} />
+          {/* <Image source={require("../assets/Verified_Icon.png")} /> */}
+          <Icon
+            style={{ width: 25, height: 25 }}
+            name="check"
+            type="font-awesome"
+            color="white"
+          />
           <Text style={styles.covidCardTextSmall}>Đã tiêm 2 mũi vaccine</Text>
         </View>
       </View>
