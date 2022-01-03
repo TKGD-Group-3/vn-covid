@@ -15,7 +15,7 @@ const Index = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View style={{ flex: 1 }}>
+    <>
       <View style={styles.covidCard}>
         <UserPopup
           visible={modalVisible}
@@ -28,7 +28,7 @@ const Index = ({ navigation }) => {
             style={styles.covidCardImage}
             source={require("../assets/QRCode.png")}
           /> */}
-          <View style={{backgroundColor: "white", padding: 20, borderRadius: 45}}>
+          <View style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}>
             <QRCode value="hello world" size={200} />
           </View>
         </Pressable>
@@ -47,25 +47,27 @@ const Index = ({ navigation }) => {
       </View>
       <View style={{ flex: 1 }}>
         <Text style={styles.subHeader}>Thông tin ca nhiễm Covid - 19</Text>
-        <View style={styles.table}>
-          <Text style={styles.tableHeaderText}></Text>
-          <Text style={styles.tableHeaderText}>Hôm qua</Text>
-          <Text style={styles.tableHeaderText}>Hôm nay</Text>
-        </View>
-        <View style={styles.table}>
-          <Text style={styles.tableContentText}>Phường 4</Text>
-          <Text style={styles.tableContentText}>123</Text>
-          <Text style={styles.tableContentText}>456</Text>
-        </View>
-        <View style={styles.table}>
-          <Text style={styles.tableContentText}>Quận 5</Text>
-          <Text style={styles.tableContentText}>456</Text>
-          <Text style={styles.tableContentText}>789</Text>
-        </View>
-        <View style={styles.table}>
-          <Text style={styles.tableContentText}>TP.HCM</Text>
-          <Text style={styles.tableContentText}>741</Text>
-          <Text style={styles.tableContentText}>852</Text>
+        <View style={{ display: "flex", marginHorizontal: 30 }}>
+          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+            <Text style={styles.tableContentText_1}></Text>
+            <Text style={styles.tableHeaderText}>Hôm qua</Text>
+            <Text style={styles.tableHeaderText}>Hôm nay</Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+            <Text style={styles.tableContentText_1}>Phường 4</Text>
+            <Text style={styles.tableContentText}>123</Text>
+            <Text style={styles.tableContentText}>456</Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+            <Text style={styles.tableContentText_1}>Quận 5</Text>
+            <Text style={styles.tableContentText}>456</Text>
+            <Text style={styles.tableContentText}>741</Text>
+          </View>
+          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+            <Text style={styles.tableContentText_1}>TP.HCM</Text>
+            <Text style={styles.tableContentText}>789</Text>
+            <Text style={styles.tableContentText}>582</Text>
+          </View>
         </View>
         <View style={styles.center}>
           <Text style={styles.notification}>
@@ -97,7 +99,7 @@ const Index = ({ navigation }) => {
             type="font-awesome"
             color="gray"
           />
-          <Text style={styles.tableHeaderText}>Quét QR</Text>
+          <Text style={styles.textQr}>Quét QR</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.center}
@@ -111,26 +113,50 @@ const Index = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   menu: {
-    flex: 1,
+    display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "center",
+    alignItems: "flex-end",
+    marginBottom: 30,
   },
-  tableContentText: {
-    color: "#929292",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  tableHeaderText: {
+  textQr: {
     color: "#30B55C",
     fontWeight: "bold",
     fontSize: 20,
+  }
+  ,
+  tableContentText_1: {
+    width: "33%",
+    color: "#929292",
+    fontWeight: "bold",
+    fontSize: 20,
+    textAlign: "left",
+    marginBottom: 10,
+    textAlign: "center",
+  }
+  ,
+  tableContentText: {
+    width: "33%",
+    color: "#929292",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  tableHeaderText: {
+    width: "33%",
+    color: "#30B55C",
+    fontWeight: "bold",
+    fontSize: 20,
+    marginBottom: 10,
+    textAlign: "center",
+
   },
   center: {
     alignItems: "center",
@@ -144,7 +170,6 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   covidCard: {
-    flex: 2,
     paddingTop: 5,
     paddingBottom: 20,
     backgroundColor: "#30B55C",

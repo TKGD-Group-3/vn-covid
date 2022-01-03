@@ -15,115 +15,77 @@ import { Icon } from "react-native-elements";
 
 const MenuScreen = ({ navigation }) => {
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 2 }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Pressable>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="qrcode"
-                    size={40}
-                    color="#30B55C"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={styles.optionInformation}>
-                    <Text style={styles.optionName}>Quản lý QR</Text>
-                  </View>
-                </View>
-              </View>
+    <>
+      <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable}>
+              <FontAwesome5 style={styles.iconMenu}
+                name="qrcode"
+                size={40}
+                color="#30B55C"
+              />
+              <Text style={styles.textMenu}>Quản lý QR</Text>
             </Pressable>
-            <Pressable onPress={() => navigation.push("KhaiBaoYTe")}>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="notes-medical"
-                    size={40}
-                    color="#30B55C"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={styles.optionInformation}>
-                    <Text style={styles.optionName}>Khai báo y tế</Text>
-                  </View>
-                </View>
-              </View>
+          </View>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable} onPress={() => navigation.push("KhaiBaoYTe")} >
+              <FontAwesome5 style={styles.iconMenu}
+                name="notes-medical"
+                size={40}
+                color="#30B55C"
+              />
+              <Text style={styles.textMenu}>Khai báo y tế</Text>
             </Pressable>
-            <Pressable onPress={() => navigation.push("PhanAnh")}>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="comment-alt"
-                    size={40}
-                    color="#33B35D"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={[styles.optionInformation]}>
-                    <Text style={styles.optionName}>Gửi phản ánh</Text>
-                  </View>
-                </View>
-              </View>
+          </View>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable} onPress={() => navigation.push("PhanAnh")}>
+              <FontAwesome5 style={styles.iconMenu}
+                name="comment-alt"
+                size={40}
+                color="#30B55C"
+              />
+              <Text style={styles.textMenu}>Gửi phản ánh</Text>
             </Pressable>
-            <Pressable onPress={() => navigation.push("NoiDaDen")}>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="map-pin"
-                    size={40}
-                    color="#FFBC01"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={[styles.optionInformation]}>
-                    <Text style={styles.optionName}>Nơi đã đến</Text>
-                  </View>
-                </View>
-              </View>
+          </View>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable} onPress={() => navigation.push("NoiDaDen")}>
+              <FontAwesome5 style={styles.iconMenu}
+                name="map-pin"
+                size={40}
+                color="#FFBC01"
+              />
+              <Text style={styles.textMenu}>Nơi đã đến</Text>
             </Pressable>
-
-            <Pressable>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="cog"
-                    size={40}
-                    color="gray"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={[styles.optionInformation]}>
-                    <Text style={styles.optionName}>Cài đặt</Text>
-                  </View>
-                </View>
-              </View>
+          </View>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable}>
+              <FontAwesome5 style={styles.iconMenu}
+                name="cog"
+                size={40}
+                color="gray"
+              />
+              <Text style={styles.textMenu}>Cài đặt</Text>
             </Pressable>
-            <Pressable>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="book"
-                    size={40}
-                    color="#1EBA9A"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={[styles.optionInformation]}>
-                    <Text style={styles.optionName}>Hướng dẫn</Text>
-                  </View>
-                </View>
-              </View>
+          </View>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable}>
+              <FontAwesome5 style={styles.iconMenu}
+                name="book"
+                size={40}
+                color="#30B55C"
+              />
+              <Text style={styles.textMenu}>Hướng dẫn</Text>
             </Pressable>
-            <Pressable>
-              <View style={styles.option}>
-                <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"  }}>
-                  <FontAwesome5
-                    name="info-circle"
-                    size={40}
-                    color="#F59CE1"
-                    style={{ marginTop: 7, paddingRight: 30 }}
-                  />
-                  <View style={[styles.optionInformation]}>
-                    <Text style={styles.optionName}>Giới thiệu</Text>
-                  </View>
-                </View>
-              </View>
+          </View>
+          <View style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginHorizontal: 25 }}>
+            <Pressable style={styles.pressable}>
+              <FontAwesome5 style={styles.iconMenu}
+                name="info-circle"
+                size={40}
+                color="#F59CE1"
+              />
+              <Text style={styles.textMenu}>Giới thiệu</Text>
             </Pressable>
           </View>
         </View>
@@ -151,7 +113,7 @@ const MenuScreen = ({ navigation }) => {
             type="font-awesome"
             color="gray"
           />
-          <Text style={styles.tableHeaderText}>Quét QR</Text>
+          <Text style={styles.textQr}>Quét QR</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.center}
@@ -165,16 +127,43 @@ const MenuScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+
   menu: {
-    flex: 1,
+    display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
+    alignItems: "flex-end",
+    marginBottom: 30,
+  },
+  textQr: {
+    color: "#30B55C",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  textMenu: {
+    textAlign: "center",
+    fontWeight: "bold",
+    width: "60%",
+    paddingLeft: 40,
+  },
+  iconMenu: {
+    display: "flex",
+    width: "40%",
+    justifyContent: "center",
+    alignContent: "center"
+  }
+  ,
+  pressable: {
+    display: "flex",
+    flexDirection: "row",
     alignItems: "center",
+    width: "100%",
+    marginBottom: 20,
   },
   tableHeaderText: {
     color: "#30B55C",
