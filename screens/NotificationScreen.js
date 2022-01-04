@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Pressable,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Icon } from "react-native-elements";
 import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
+import MenuBottom from "../components/MenuBottom";
 
 const NotificationScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height: "100%",
+      }}
+    >
       <View style={{ display: "flex", flexDirection: "column" }}>
-
         <View style={styles.covidCard}>
           <UserPopup
             visible={modalVisible}
@@ -26,18 +26,19 @@ const NotificationScreen = ({ navigation }) => {
           <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
           <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
           <Pressable onPress={() => setModalVisible(true)}>
-            <View style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}>
+            <View
+              style={{
+                backgroundColor: "white",
+                padding: 20,
+                borderRadius: 45,
+              }}
+            >
               <QRCode value="hello world" size={200} />
             </View>
-            {/* <Image
-            style={styles.covidCardImage}
-            source={require("../assets/QRCode.png")}
-          /> */}
           </Pressable>
           <Text style={styles.covidCardText}>Nguyễn Văn A</Text>
           <Text style={styles.covidCardText}>Nam - 199x</Text>
           <View style={styles.vaccine}>
-            {/* <Image source={require("../assets/Verified_Icon.png")} /> */}
             <Icon
               style={{ width: 25, height: 25 }}
               name="check"
@@ -87,50 +88,12 @@ const NotificationScreen = ({ navigation }) => {
               </Text>
             </View>
           </View>
-
         </View>
       </View>
 
       {/* <View style={{ flex: -1 }}> */}
-      <View style={styles.menu}>
-        <TouchableOpacity
-          style={styles.center}
-          onPress={() => navigation.push("Index")}
-        >
-          <Icon
-            style={{ width: 25, height: 25, marginBottom: 15 }}
-            name="home"
-            type="font-awesome"
-            color="gray"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.center}
-          onPress={() => navigation.push("QRScanner")}
-        >
-          <Icon
-            style={{ width: 25, height: 25 }}
-            raised
-            name="qrcode"
-            type="font-awesome"
-            color="gray"
-          />
-          <Text style={styles.textQr}>Quét QR</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.center}
-          onPress={() => navigation.push("MenuScreen")}
-        >
-          <Icon
-            style={{ width: 25, height: 25, marginBottom: 15 }}
-            name="ellipsis-v"
-            type="font-awesome"
-            color="gray"
-          />
-        </TouchableOpacity>
-      </View>
+      <MenuBottom navigation={navigation} />
       {/* </View> */}
-
     </View>
   );
 };

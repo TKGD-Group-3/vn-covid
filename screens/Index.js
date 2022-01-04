@@ -10,6 +10,7 @@ import {
 import { Icon } from "react-native-elements";
 import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
+import MenuBottom from "../components/MenuBottom";
 
 const Index = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -24,18 +25,15 @@ const Index = ({ navigation }) => {
         <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
         <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
         <Pressable onPress={() => setModalVisible(true)}>
-          {/* <Image
-            style={styles.covidCardImage}
-            source={require("../assets/QRCode.png")}
-          /> */}
-          <View style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}>
+          <View
+            style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}
+          >
             <QRCode value="hello world" size={200} />
           </View>
         </Pressable>
         <Text style={styles.covidCardText}>Nguyễn Văn A</Text>
         <Text style={styles.covidCardText}>Nam - 199x</Text>
         <View style={styles.vaccine}>
-          {/* <Image source={require("../assets/Verified_Icon.png")} /> */}
           <Icon
             style={{ width: 25, height: 25 }}
             name="check"
@@ -48,22 +46,50 @@ const Index = ({ navigation }) => {
       <View style={{ flex: 1 }}>
         <Text style={styles.subHeader}>Thông tin ca nhiễm Covid - 19</Text>
         <View style={{ display: "flex", marginHorizontal: 30 }}>
-          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              textAlign: "center",
+            }}
+          >
             <Text style={styles.tableContentText_1}></Text>
             <Text style={styles.tableHeaderText}>Hôm qua</Text>
             <Text style={styles.tableHeaderText}>Hôm nay</Text>
           </View>
-          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              textAlign: "center",
+            }}
+          >
             <Text style={styles.tableContentText_1}>Phường 4</Text>
             <Text style={styles.tableContentText}>123</Text>
             <Text style={styles.tableContentText}>456</Text>
           </View>
-          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              textAlign: "center",
+            }}
+          >
             <Text style={styles.tableContentText_1}>Quận 5</Text>
             <Text style={styles.tableContentText}>456</Text>
             <Text style={styles.tableContentText}>741</Text>
           </View>
-          <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", textAlign: "center" }}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              textAlign: "center",
+            }}
+          >
             <Text style={styles.tableContentText_1}>TP.HCM</Text>
             <Text style={styles.tableContentText}>789</Text>
             <Text style={styles.tableContentText}>582</Text>
@@ -76,43 +102,7 @@ const Index = ({ navigation }) => {
           </Text>
         </View>
       </View>
-      <View style={styles.menu}>
-        <TouchableOpacity
-          style={styles.center}
-          onPress={() => navigation.push("NotificationScreen")}
-        >
-          <Icon
-            style={{ width: 25, height: 25, marginBottom: 15 }}
-            name="bell"
-            type="font-awesome"
-            color="gray"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.center}
-          onPress={() => navigation.push("QRScanner")}
-        >
-          <Icon
-            style={{ width: 25, height: 25 }}
-            raised
-            name="qrcode"
-            type="font-awesome"
-            color="gray"
-          />
-          <Text style={styles.textQr}>Quét QR</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.center}
-          onPress={() => navigation.push("MenuScreen")}
-        >
-          <Icon
-            style={{ width: 25, height: 25, marginBottom: 15 }}
-            name="ellipsis-v"
-            type="font-awesome"
-            color="gray"
-          />
-        </TouchableOpacity>
-      </View>
+      <MenuBottom navigation={navigation} />
     </>
   );
 };
@@ -125,12 +115,15 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     marginBottom: 20,
   },
+  center: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   textQr: {
     color: "#30B55C",
     fontWeight: "bold",
     fontSize: 20,
-  }
-  ,
+  },
   tableContentText_1: {
     width: "33%",
     color: "#929292",
@@ -139,8 +132,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     marginBottom: 10,
     textAlign: "center",
-  }
-  ,
+  },
   tableContentText: {
     width: "33%",
     color: "#929292",
@@ -156,12 +148,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
     textAlign: "center",
+  },
 
-  },
-  center: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
   notification: {
     color: "#FF0000",
     fontSize: 18,
