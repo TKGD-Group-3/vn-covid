@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet, Pressable, Modal } from "react-native";
 import { FontAwesome5, MaterialIcons } from "react-native-vector-icons";
 
-export default function Popup({ visible, handleClose }) {
+export default function Popup({ visible, handleClose, navigateToHome }) {
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -21,24 +21,26 @@ export default function Popup({ visible, handleClose }) {
               <Text style={styles.welcome}>Chào mừng bạn đã đến!</Text>
               <Text style={styles.location}>FPT Shop Bình Phước</Text>
             </View>
-            <Pressable>
-              <View style={styles.option}>
-                <FontAwesome5 name="notes-medical" size={30} color="#30B55C" />
-                <View style={styles.optionInformation}>
-                  <Text style={styles.optionName}>
-                    Xem lại và gửi tờ khai y tế
-                  </Text>
-                </View>
-                <MaterialIcons name="navigate-next" size={20} color="#b3b3b3" />
+            <View
+              style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center"}}
+            >
+              <View style={styles.buttonView}>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={handleClose}
+                >
+                  <Text style={styles.textStyle}>Quay lại</Text>
+                </Pressable>
               </View>
-            </Pressable>
-            <View style={styles.buttonView}>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={handleClose}
-              >
-                <Text style={styles.textStyle}>Quay lại</Text>
-              </Pressable>
+              <View style={{ flex: 2 }}></View>
+              <View style={styles.buttonView}>
+                <Pressable
+                  style={[styles.button, styles.buttonSubmit]}
+                  onPress={navigateToHome}
+                >
+                  <Text style={styles.textStyle}>Gửi KBYT</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
         </View>
@@ -78,8 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   icon: {},
-  optionInformation: {
-  },
+  optionInformation: {},
   optionName: {
     marginVertical: 10,
     fontWeight: "bold",
@@ -93,6 +94,8 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     alignItems: "center",
+    marginBottom: 20,
+    flex: 10,
   },
   city: {
     fontSize: 16,
@@ -113,12 +116,16 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     elevation: 2,
+    width: "100%",
   },
   buttonOpen: {
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#b3b3b3",
+  },
+  buttonSubmit: {
+    backgroundColor: "#30B55C",
   },
   textStyle: {
     color: "white",

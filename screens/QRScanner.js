@@ -69,6 +69,7 @@ export default function QRScanner({ navigation }) {
       <Popup
         visible={modalVisible}
         handleClose={() => setModalVisible(false)}
+        navigateToHome={() => navigation.goBack()}
       />
       {/* <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
