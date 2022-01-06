@@ -65,11 +65,14 @@ export default function QRScanner({ navigation }) {
         />
       )}
       <Text style={{ padding: 5 }} />
-      <Button title="Quay lại" onPress={() => navigation.goBack()} />
+      <Button title="Quay lại" onPress={() => {navigation.goBack()}} />
       <Popup
         visible={modalVisible}
         handleClose={() => setModalVisible(false)}
-        navigateToHome={() => navigation.goBack()}
+        navigateToHome={() => {
+          setScanned(false);
+          navigation.goBack();
+        }}
       />
       {/* <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
