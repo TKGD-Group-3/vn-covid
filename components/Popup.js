@@ -22,7 +22,7 @@ export default function Popup({ visible, handleClose, navigateToHome }) {
               <Text style={styles.location}>FPT Shop Bình Phước</Text>
             </View>
             <View
-              style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center"}}
+              style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}
             >
               <View style={styles.buttonView}>
                 <Pressable
@@ -36,7 +36,8 @@ export default function Popup({ visible, handleClose, navigateToHome }) {
               <View style={styles.buttonView}>
                 <Pressable
                   style={[styles.button, styles.buttonSubmit]}
-                  onPress={navigateToHome}
+                  onPress={handleClose}
+                // onPress={navigateToHome}
                 >
                   <Text style={styles.textStyle}>Gửi KBYT</Text>
                 </Pressable>
