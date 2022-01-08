@@ -1,4 +1,6 @@
 import React from "react";
+import { QRCodeScannedProvider } from "./context/QRCodeContext";
+
 import { StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -13,28 +15,29 @@ import KhaiBaoYTe from "./screens/KhaiBaoYTe";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.AndroidSafeArea}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Index"
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Index" component={Index} />
-          <Stack.Screen name="MenuScreen" component={MenuScreen} />
-          <Stack.Screen
-            name="NotificationScreen"
-            component={NotificationScreen}
-          />
-          <Stack.Screen name="QRScanner" component={QRScanner} />
-          <Stack.Screen name="PhanAnh" component={PhanAnh} />
-          <Stack.Screen name="NoiDaDen" component={NoiDaDen} />
-          <Stack.Screen name="KhaiBaoYTe" component={KhaiBaoYTe} />
-
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
+    <QRCodeScannedProvider>
+      <SafeAreaView style={styles.AndroidSafeArea}>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Index"
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="Index" component={Index} />
+            <Stack.Screen name="MenuScreen" component={MenuScreen} />
+            <Stack.Screen
+              name="NotificationScreen"
+              component={NotificationScreen}
+            />
+            <Stack.Screen name="QRScanner" component={QRScanner} />
+            <Stack.Screen name="PhanAnh" component={PhanAnh} />
+            <Stack.Screen name="NoiDaDen" component={NoiDaDen} />
+            <Stack.Screen name="KhaiBaoYTe" component={KhaiBaoYTe} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    </QRCodeScannedProvider>
   );
 }
 

@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { QRCodeScannedContext } from "../context/QRCodeContext";
+
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 import Popup from "../components/Popup";
 
 export default function QRScanner({ navigation }) {
+  const { setHasScanned } = useContext(QRCodeScannedContext);
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [text, setText] = useState("Not yet scanned");
-  const [modalVisible, setModalVisible] = useState(false);
 
   const askForCameraPermission = () => {
     BarCodeScanner.requestPermissionsAsync().then(({ status }) => {
@@ -22,8 +23,8 @@ export default function QRScanner({ navigation }) {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    setModalVisible(true);
-    setText(`${type} ${data}`);
+    setHasScanned(true);
+    navigation.push("Index");
   };
 
   if (hasPermission === null) {
@@ -52,28 +53,35 @@ export default function QRScanner({ navigation }) {
       <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-          style={{ height: 400, width: 400 }}
+          style={{ height: "100%", width: "100%" }}
         />
       </View>
-      <Text style={styles.maintext}>{text}</Text>
 
-      {scanned && (
-        <Button
-          title={"Quét lại"}
-          onPress={() => setScanned(false)}
-          color="tomato"
-        />
-      )}
-      <Text style={{ padding: 5 }} />
-      <Button title="Quay lại" onPress={() => {navigation.goBack()}} />
-      <Popup
-        visible={modalVisible}
-        handleClose={() => setModalVisible(false)}
-        navigateToHome={() => {
-          setScanned(false);
-          navigation.goBack();
+      <View
+        style={{
+          flexDirection: "row",
+          width: "100%",
+          justifyContent: "space-around",
+          alignItems: "center",
+          marginTop: 10,
         }}
-      />
+      >
+        <Button
+          title="Quay lại"
+          style={{ borderRadius: 10 }}
+          color="#b3b3b3"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+        {scanned && (
+          <Button
+            title={"Quét lại"}
+            style={{ marginTop: 10, borderRadius: 10 }}
+            onPress={() => setScanned(false)}
+          />
+        )}
+      </View>
       {/* <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
@@ -93,8 +101,8 @@ const styles = StyleSheet.create({
   barcodebox: {
     alignItems: "center",
     justifyContent: "center",
-    height: 300,
-    width: 300,
+    height: "80%",
+    width: "100%",
     borderRadius: 30,
     overflow: "hidden",
     backgroundColor: "tomato",

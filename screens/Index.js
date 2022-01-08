@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { QRCodeScannedContext } from "../context/QRCodeContext";
 import {
   View,
   Text,
@@ -11,8 +12,10 @@ import { Icon } from "react-native-elements";
 import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
 import MenuBottom from "../components/MenuBottom";
+import Popup from "../components/Popup";
 
 const Index = ({ navigation }) => {
+  const { hasScanned, setHasScanned } = useContext(QRCodeScannedContext);
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -102,6 +105,13 @@ const Index = ({ navigation }) => {
           </Text>
         </View>
       </View>
+      <Popup
+        visible={hasScanned}
+        handleClose={() => {
+          navigation.goBack();
+        }}
+        navigateToHome={() => setHasScanned(false)}
+      />
       <MenuBottom navigation={navigation} />
     </>
   );

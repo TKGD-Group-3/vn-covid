@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { QRCodeScannedContext } from "../context/QRCodeContext";
+
 import { Text, View, StyleSheet, Pressable, Modal } from "react-native";
-import { FontAwesome5, MaterialIcons } from "react-native-vector-icons";
 
 export default function Popup({ visible, handleClose, navigateToHome }) {
   return (
@@ -36,7 +37,7 @@ export default function Popup({ visible, handleClose, navigateToHome }) {
               <View style={styles.buttonView}>
                 <Pressable
                   style={[styles.button, styles.buttonSubmit]}
-                  onPress={handleClose}
+                  onPress={navigateToHome}
                 // onPress={navigateToHome}
                 >
                   <Text style={styles.textStyle}>Gửi KBYT</Text>
