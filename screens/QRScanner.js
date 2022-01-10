@@ -1,15 +1,31 @@
 import React, { useState, useEffect, useContext } from "react";
 import { QRCodeScannedContext } from "../context/QRCodeContext";
-
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Entypo } from "react-native-vector-icons";
+import { Text, View, StyleSheet, Button, Dimensions, TouchableOpacity } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 import Popup from "../components/Popup";
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 export default function QRScanner({ navigation }) {
   const { setHasScanned } = useContext(QRCodeScannedContext);
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+
+  const chevron = (deg) => {
+    return (
+      <View>
+        <Entypo
+          name="chevron-thin-up"
+          size={60}
+          color="#30B55C"
+          style={{
+            transform: [{ rotate: String(deg) + "deg" }]
+          }}
+        />
+      </View>
+    );
+  }
 
   const askForCameraPermission = () => {
     BarCodeScanner.requestPermissionsAsync().then(({ status }) => {
@@ -53,8 +69,19 @@ export default function QRScanner({ navigation }) {
       <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-          style={{ height: "100%", width: "100%" }}
-        />
+          style={{ height: windowHeight, width: windowWidth, justifyContent: "center", alignItems: "center", flexDirection: "column" }}
+        >
+          <View style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: windowWidth, height: windowWidth }}>
+            <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: windowWidth }}>
+              {chevron(315)}
+              {chevron(45)}
+            </View>
+            <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: windowWidth }}>
+              {chevron(225)}
+              {chevron(135)}
+            </View>
+          </View>
+        </BarCodeScanner>
       </View>
 
       <View
@@ -101,9 +128,8 @@ const styles = StyleSheet.create({
   barcodebox: {
     alignItems: "center",
     justifyContent: "center",
-    height: "80%",
-    width: "100%",
-    borderRadius: 30,
+    width: windowWidth,
+    height: windowWidth,
     overflow: "hidden",
     backgroundColor: "tomato",
   },
