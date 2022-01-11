@@ -38,6 +38,7 @@ export default function QRScanner({ navigation }) {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
+    if (scanned) return;
     setScanned(true);
     setHasScanned(true);
     navigation.push("Index");
@@ -62,10 +63,12 @@ export default function QRScanner({ navigation }) {
     );
   }
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 20, paddingVertical: 20 }}>
-        Đưa QR vào khu vực camera để quét
-      </Text>
+    <View style={{
+      flex: 1,
+      backgroundColor: "#000000",
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
       <View style={styles.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -83,7 +86,9 @@ export default function QRScanner({ navigation }) {
           </View>
         </BarCodeScanner>
       </View>
-
+      <Text style={{ fontSize: 20, paddingVertical: 20, color: "#ffffff" }}>
+        Đưa QR vào khu vực camera để quét
+      </Text>
       <View
         style={{
           flexDirection: "row",
@@ -93,21 +98,65 @@ export default function QRScanner({ navigation }) {
           marginTop: 10,
         }}
       >
-        <Button
+        <TouchableOpacity
+          style={{
+            borderColor: '#30B55C',
+            backgroundColor: '#30B55C',
+            borderRadius: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            marginBottom: 30
+          }}
+          onPress={() => { navigation.goBack() }}
+        >
+          <Text
+            style={{
+              color: '#FFFFFF',
+              paddingVertical: 15,
+              paddingHorizontal: 40,
+              fontSize: 20,
+            }}>
+            Đóng
+          </Text>
+        </TouchableOpacity>
+        {/* <Button
           title="Quay lại"
-          style={{ borderRadius: 10 }}
-          color="#b3b3b3"
+          style={{
+            borderColor: '#30B55C',
+            backgroundColor: '#30B55C',
+            borderRadius: 30,
+          }}
+          color="#30B55C"
           onPress={() => {
             navigation.goBack();
           }}
-        />
-        {scanned && (
-          <Button
-            title={"Quét lại"}
-            style={{ marginTop: 10, borderRadius: 10 }}
+        /> */}
+        {scanned &&
+
+          <TouchableOpacity
+            style={{
+              borderColor: '#30B55C',
+              backgroundColor: '#30B55C',
+              borderRadius: 30,
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
+              marginBottom: 30,
+            }}
             onPress={() => setScanned(false)}
-          />
-        )}
+          >
+            <Text
+              style={{
+                color: '#FFFFFF',
+                paddingVertical: 15,
+                paddingHorizontal: 40,
+                fontSize: 20,
+              }}>
+              Quét lại
+            </Text>
+          </TouchableOpacity>
+        }
       </View>
       {/* <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
