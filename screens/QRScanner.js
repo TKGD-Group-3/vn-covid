@@ -112,7 +112,7 @@ export default function QRScanner({ navigation }) {
         >
           <Text
             style={{
-              color: '#000000',
+              color: '#FFFFFF',
               paddingVertical: 15,
               paddingHorizontal: 40,
               fontSize: 20,
