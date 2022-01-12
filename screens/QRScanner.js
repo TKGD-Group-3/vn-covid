@@ -100,8 +100,8 @@ export default function QRScanner({ navigation }) {
       >
         <TouchableOpacity
           style={{
-            borderColor: '#30B55C',
-            backgroundColor: '#30B55C',
+            borderColor: '#B3B3B3',
+            backgroundColor: '#B3B3B3',
             borderRadius: 30,
             justifyContent: 'center',
             alignItems: 'center',
