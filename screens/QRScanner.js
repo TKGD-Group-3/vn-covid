@@ -41,7 +41,7 @@ export default function QRScanner({ navigation }) {
     if (scanned) return;
     setScanned(true);
     setHasScanned(true);
-    navigation.push("Index");
+    // navigation.push("Index");
   };
 
   if (hasPermission === null) {

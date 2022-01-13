@@ -108,7 +108,8 @@ const Index = ({ navigation }) => {
       <Popup
         visible={hasScanned}
         handleClose={() => {
-          navigation.goBack();
+          // navigation.goBack();
+          setHasScanned(false);
         }}
         navigateToHome={() => setHasScanned(false)}
       />
