@@ -28,10 +28,10 @@ export default function UserPopup({ visible, handleClose }) {
                   <Text style={styles.welcome}>Nam - 199x</Text>
                 </View>
                 <View style={styles.detailInfo}>
-                  <Text style={{ color: "white" }}>
-                    CMND: <Text style={{ fontWeight: "bold" }}>288311582</Text>
+                  <Text style={{ color: "white", fontSize: 18, marginBottom: 5}}>
+                    CMND: <Text style={{ fontWeight: "bold" }}>0791 0000 2426</Text>
                   </Text>
-                  <Text style={{ color: "white" }}>
+                  <Text style={{ color: "white", fontSize: 18 }}>
                     Nơi ở:{" "}
                     <Text style={{ fontWeight: "bold" }}>300/92 Lê Dũng</Text>
                   </Text>
@@ -91,7 +91,7 @@ export default function UserPopup({ visible, handleClose }) {
                   />
                   <View style={styles.optionInformation}>
                     <Text style={styles.optionName}>
-                      Vaccine: Chưa có thông tin từ {"\n"}Nền tảng tiêm chủng
+                      Vaccine: Chưa có thông tin {'\n'} từ Nền tảng tiêm chủng
                     </Text>
                   </View>
                 </View>
@@ -108,7 +108,7 @@ export default function UserPopup({ visible, handleClose }) {
                   />
                   <View style={styles.optionInformation}>
                     <Text style={styles.optionName}>
-                      Xét nghiệm: Chưa có thông tin từ {"\n"}cơ sở xét nghiệm
+                      Xét nghiệm: Chưa có thông {'\n'} tin từ cơ sở xét nghiệm
                     </Text>
                   </View>
                 </View>
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
   optionName: {
     marginVertical: 5,
     fontWeight: "bold",
+    fontSize: 18,
   },
   welcomeView: {
     alignItems: "center",
@@ -208,13 +209,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   welcome: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#ededed",
     paddingVertical: 2,
   },
   location: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 22,
     color: "white",
     paddingTop: 10,
   },

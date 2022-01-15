@@ -27,7 +27,7 @@ const Index = ({ navigation }) => {
         />
         <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
         <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
-        <Pressable onPress={() => setModalVisible(true)}>
+        <Pressable onPress={() => setModalVisible(true)} style={{ marginVertical: 8 }}>
           <View
             style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}
           >
@@ -108,7 +108,7 @@ const Index = ({ navigation }) => {
       <Popup
         visible={hasScanned}
         handleClose={() => {
-          // navigation.goBack();
+          navigation.push("QRScanner");
           setHasScanned(false);
         }}
         navigateToHome={() => setHasScanned(false)}

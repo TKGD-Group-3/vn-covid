@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 import { Icon } from "react-native-elements";
 import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
@@ -9,6 +9,7 @@ const NotificationScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
+    <ScrollView>
     <View
       style={{
         display: "flex",
@@ -25,7 +26,7 @@ const NotificationScreen = ({ navigation }) => {
           />
           <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
           <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
-          <Pressable onPress={() => setModalVisible(true)}>
+          <Pressable onPress={() => setModalVisible(true)} style={{ marginVertical: 8 }}>
             <View
               style={{
                 backgroundColor: "white",
@@ -53,6 +54,8 @@ const NotificationScreen = ({ navigation }) => {
             margin: 5,
             backgroundColor: "white",
             borderRadius: 20,
+            borderWidth: 2,
+            borderColor: "#b3b3b3",
             shadowColor: "#000",
             shadowOffset: {
               width: 0,
@@ -73,7 +76,51 @@ const NotificationScreen = ({ navigation }) => {
                 }}
               >
                 <Icon
-                  style={{ width: 25, height: 25 }}
+                  style={{ width: 25, height: 25, marginRight: 10 }}
+                  name="circle"
+                  type="font-awesome"
+                  color="#00ff22"
+                />
+                <Text>14:07 26/11/2021</Text>
+              </View>
+            </View>
+            <View style={styles.center}>
+              <Text style={styles.notification}>
+                Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào
+                thời gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={{
+            margin: 5,
+            marginTop: 0,
+            backgroundColor: "white",
+            borderRadius: 20,
+            borderWidth: 2,
+            borderColor: "#b3b3b3",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 4,
+            elevation: 5,
+          }}
+        >
+          <View style={{ marginTop: 10 }}>
+            <View style={{ alignItems: "center", margin: 5 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  width: "80%",
+                }}
+              >
+                <Icon
+                  style={{ width: 25, height: 25, marginRight: 10 }}
                   name="circle"
                   type="font-awesome"
                   color="gray"
@@ -90,11 +137,13 @@ const NotificationScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
+      
 
       {/* <View style={{ flex: -1 }}> */}
       <MenuBottom navigation={navigation} />
       {/* </View> */}
     </View>
+    </ScrollView>
   );
 };
 

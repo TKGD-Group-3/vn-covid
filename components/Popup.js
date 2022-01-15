@@ -104,13 +104,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   welcome: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#ededed",
     paddingVertical: 10,
   },
   location: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 20,
     color: "white",
   },
   button: {
