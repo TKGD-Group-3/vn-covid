@@ -7,6 +7,7 @@ import {
   Image,
   Pressable,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { Icon } from "react-native-elements";
 import QRCode from "react-native-qrcode-svg";
@@ -19,7 +20,7 @@ const Index = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <>
+    <ScrollView>
       <View style={styles.covidCard}>
         <UserPopup
           visible={modalVisible}
@@ -27,7 +28,10 @@ const Index = ({ navigation }) => {
         />
         <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
         <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
-        <Pressable onPress={() => setModalVisible(true)} style={{ marginVertical: 8 }}>
+        <Pressable
+          onPress={() => setModalVisible(true)}
+          style={{ marginVertical: 8 }}
+        >
           <View
             style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}
           >
@@ -44,6 +48,11 @@ const Index = ({ navigation }) => {
             color="white"
           />
           <Text style={styles.covidCardTextSmall}>Đã tiêm 2 mũi vaccine</Text>
+        </View>
+        <View style={{ marginBottom: -20, marginTop: 10 }}>
+          <Text style={{ color: "white", fontStyle: "italic" }}>
+            Click vào mã Qr để xem thông tin chi tiết
+          </Text>
         </View>
       </View>
       <View style={{ flex: 1 }}>
@@ -100,7 +109,7 @@ const Index = ({ navigation }) => {
         </View>
         <View style={styles.center}>
           <Text style={styles.notification}>
-            Nơi bạn đang sống đang là vùng dịch cấp độ 4. Yêu cầu người dân chỉ
+            Nơi bạn đang sống đang là vùng đỏ. Yêu cầu người dân chỉ
             ra khỏi nhà trong trường hợp thật sự cần thiết.
           </Text>
         </View>
@@ -114,7 +123,7 @@ const Index = ({ navigation }) => {
         navigateToHome={() => setHasScanned(false)}
       />
       <MenuBottom navigation={navigation} />
-    </>
+    </ScrollView>
   );
 };
 
@@ -166,7 +175,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     width: "80%",
-    paddingBottom: 15,
+    marginTop: 10,
   },
   covidCard: {
     paddingTop: 5,

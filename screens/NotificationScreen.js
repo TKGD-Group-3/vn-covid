@@ -48,6 +48,9 @@ const NotificationScreen = ({ navigation }) => {
             />
             <Text style={styles.covidCardTextSmall}>Đã tiêm 2 mũi vaccine</Text>
           </View>
+          <View style={{ marginBottom: -20, marginTop: 10 }}>
+            <Text style={{ color: "white", fontStyle: "italic" }}>Click vào mã Qr để xem thông tin chi tiết</Text>
+          </View>
         </View>
         <View
           style={{
