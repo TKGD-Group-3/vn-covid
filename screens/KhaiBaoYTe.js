@@ -12,7 +12,7 @@ import {
     TouchableOpacity,
     ScrollView,
     Modal,
-
+    Pressable
 } from 'react-native';
 function goBack() { }
 export default function KhaiBaoYTe({ navigation }) {
@@ -20,7 +20,11 @@ export default function KhaiBaoYTe({ navigation }) {
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
     const [showPopUp, setshowPopUp] = useState(false);
     const [isOK, setIsOK] = useState(false);
-
+    const [check1, setCheck1] = useState(false);
+    const [check2, setCheck2] = useState(false);
+    const [check3, setCheck3] = useState(false);
+    const [check4, setCheck4] = useState(false);
+    const [check5, setCheck5] = useState(false);
     return (
         <ScrollView>
 
@@ -139,34 +143,54 @@ export default function KhaiBaoYTe({ navigation }) {
                             marginLeft: 15,
                             alignItems: 'center',
                         }}>
-                        <View style={styles.circle}>
-                            <Icon
-                                name="circle"
-                                type="font-awnsome"
-                                size={15}
-                                color="#30B55C"
-                            />
-                        </View>
-                        <Text
-                            style={{
-                                color: '#30B55C',
-                                marginLeft: 5,
-                                fontWeight: 'bold',
-                                fontSize: 14,
-                                marginRight: 15,
-                            }}>
-                            Không
-                        </Text>
-                        <View style={styles.circle}></View>
-                        <Text
-                            style={{
-                                color: '#30B55C',
-                                marginLeft: 5,
-                                fontWeight: 'bold',
-                                fontSize: 14,
-                            }}>
-                            Có
-                        </Text>
+                        <Pressable style={{ flexDirection: "row" }} onPress={() => setCheck1(false)}>
+                            <View style={styles.circle}>
+                                {
+                                    !check1 &&
+                                    <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />
+                                }
+
+                            </View>
+                            <Text
+                                style={{
+                                    color: '#30B55C',
+                                    marginLeft: 5,
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+                                    marginRight: 15,
+                                }}>
+                                Không
+                            </Text>
+                        </Pressable>
+                        <Pressable style={{ flexDirection: "row" }} onPress={() => setCheck1(true)}>
+                            <View style={styles.circle}>
+                                {
+                                    check1 &&
+                                    <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />
+                                }
+
+                            </View>
+                            <Text
+                                style={{
+                                    color: '#30B55C',
+                                    marginLeft: 5,
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+                                }}>
+                                Có
+                            </Text>
+                        </Pressable>
+
                     </View>
                 </View>
 
@@ -196,34 +220,53 @@ export default function KhaiBaoYTe({ navigation }) {
                             marginLeft: 15,
                             alignItems: 'center',
                         }}>
-                        <View style={styles.circle}>
-                            <Icon
-                                name="circle"
-                                type="font-awnsome"
-                                size={15}
-                                color="#30B55C"
-                            />
-                        </View>
-                        <Text
-                            style={{
-                                color: '#30B55C',
-                                marginLeft: 5,
-                                fontWeight: 'bold',
-                                fontSize: 14,
-                                marginRight: 15,
-                            }}>
-                            Không
-                        </Text>
-                        <View style={styles.circle}></View>
-                        <Text
-                            style={{
-                                color: '#30B55C',
-                                marginLeft: 5,
-                                fontWeight: 'bold',
-                                fontSize: 14,
-                            }}>
-                            Có
-                        </Text>
+                        <Pressable style={{ flexDirection: "row" }} onPress={() => setCheck2(false)}>
+                            <View style={styles.circle}>
+                                {
+                                    !check2 &&
+                                    <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />
+                                }
+
+                            </View>
+                            <Text
+                                style={{
+                                    color: '#30B55C',
+                                    marginLeft: 5,
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+                                    marginRight: 15,
+                                }}>
+                                Không
+                            </Text>
+                        </Pressable>
+                        <Pressable style={{ flexDirection: "row" }} onPress={() => setCheck2(true)}>
+                            <View style={styles.circle}>
+                                {
+                                    check2 &&
+                                    <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />
+                                }
+
+                            </View>
+                            <Text
+                                style={{
+                                    color: '#30B55C',
+                                    marginLeft: 5,
+                                    fontWeight: 'bold',
+                                    fontSize: 14,
+                                }}>
+                                Có
+                            </Text>
+                        </Pressable>
                     </View>
                 </View>
                 <View
@@ -247,7 +290,7 @@ export default function KhaiBaoYTe({ navigation }) {
                                 fontWeight: 'bold',
                                 color: '#30B55C',
                             }}>
-                            Có
+                            Không
                         </Text>
                         <Text
                             style={{
@@ -256,7 +299,7 @@ export default function KhaiBaoYTe({ navigation }) {
                                 fontWeight: 'bold',
                                 color: '#30B55C',
                             }}>
-                            Không
+                            Có
                         </Text>
                     </View>
 
@@ -274,31 +317,31 @@ export default function KhaiBaoYTe({ navigation }) {
                         <Text style={{ width: '70%', fontSize: 11 }}>
                             Người bệnh hoặc nghi ngờ mắc bệnh Covid-19
                         </Text>
-                        <Text
-                            style={{
-                                width: '15%',
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                color: '#30B55C',
-                            }}>
-                            <View style={styles.circle}></View>
-                        </Text>
-                        <Text
-                            style={{
-                                width: '15%',
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                color: '#30B55C',
-                            }}>
-                            <View style={styles.circle}>
-                                <Icon
-                                    name="circle"
-                                    type="font-awnsome"
-                                    size={15}
-                                    color="#30B55C"
-                                />
-                            </View>
-                        </Text>
+                        <View style={{ width: '15%', flexDirection: "row", justifyContent: "center" }}>
+                            <Pressable onPress={() => setCheck3(false)}>
+                                <View style={styles.circle}>
+                                    {!check3 && <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />}
+                                </View>
+                            </Pressable>
+                        </View>
+
+                        <View style={{ width: '15%', flexDirection: "row", justifyContent: "center" }}>
+                            <Pressable onPress={() => setCheck3(true)}>
+                                <View style={styles.circle}>
+                                    {check3 && <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />}
+                                </View>
+                            </Pressable>
+                        </View>
                     </View>
 
                     <View
@@ -315,31 +358,31 @@ export default function KhaiBaoYTe({ navigation }) {
                         <Text style={{ width: '70%', fontSize: 11 }}>
                             Người từ nước có bệnh Covid-19
                         </Text>
-                        <Text
-                            style={{
-                                width: '15%',
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                color: '#30B55C',
-                            }}>
-                            <View style={styles.circle}></View>
-                        </Text>
-                        <Text
-                            style={{
-                                width: '15%',
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                color: '#30B55C',
-                            }}>
-                            <View style={styles.circle}>
-                                <Icon
-                                    name="circle"
-                                    type="font-awnsome"
-                                    size={15}
-                                    color="#30B55C"
-                                />
-                            </View>
-                        </Text>
+                        <View style={{ width: '15%', flexDirection: "row", justifyContent: "center" }}>
+                            <Pressable onPress={() => setCheck4(false)}>
+                                <View style={styles.circle}>
+                                    {!check4 && <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />}
+                                </View>
+                            </Pressable>
+                        </View>
+
+                        <View style={{ width: '15%', flexDirection: "row", justifyContent: "center" }}>
+                            <Pressable onPress={() => setCheck4(true)}>
+                                <View style={styles.circle}>
+                                    {check4 && <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />}
+                                </View>
+                            </Pressable>
+                        </View>
                     </View>
 
                     <View
@@ -361,31 +404,31 @@ export default function KhaiBaoYTe({ navigation }) {
                         <Text style={{ width: '70%', fontSize: 11 }}>
                             Người bệnh có biểu hiện sốt, ho, khó thở, viêm phổi
                         </Text>
-                        <Text
-                            style={{
-                                width: '15%',
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                color: '#30B55C',
-                            }}>
-                            <View style={styles.circle}></View>
-                        </Text>
-                        <Text
-                            style={{
-                                width: '15%',
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                color: '#30B55C',
-                            }}>
-                            <View style={styles.circle}>
-                                <Icon
-                                    name="circle"
-                                    type="font-awnsome"
-                                    size={15}
-                                    color="#30B55C"
-                                />
-                            </View>
-                        </Text>
+                        <View style={{ width: '15%', flexDirection: "row", justifyContent: "center" }}>
+                            <Pressable onPress={() => setCheck5(false)}>
+                                <View style={styles.circle}>
+                                    {!check5 && <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />}
+                                </View>
+                            </Pressable>
+                        </View>
+
+                        <View style={{ width: '15%', flexDirection: "row", justifyContent: "center" }}>
+                            <Pressable onPress={() => setCheck5(true)}>
+                                <View style={styles.circle}>
+                                    {check5 && <Icon
+                                        name="circle"
+                                        type="font-awnsome"
+                                        size={15}
+                                        color="#30B55C"
+                                    />}
+                                </View>
+                            </Pressable>
+                        </View>
                     </View>
                 </View>
 
@@ -478,9 +521,9 @@ export default function KhaiBaoYTe({ navigation }) {
                         </View>
                     </Modal>
                 </View>
-            </View>
+            </View >
 
-        </ScrollView>
+        </ScrollView >
     );
 }
 const circleSize = 22;
