@@ -12,7 +12,7 @@ import MenuBottom from "../components/MenuBottom";
 
 const MenuScreen = ({ navigation }) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <View
@@ -160,8 +160,8 @@ const MenuScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
-          <MenuBottom navigation={navigation} />
-        </View>
+        <MenuBottom navigation={navigation} />
+      </View>
     </View>
   );
 };

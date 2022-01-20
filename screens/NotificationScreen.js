@@ -144,11 +144,12 @@ const NotificationScreen = ({ navigation }) => {
         </View>
 
         {/* <View style={{ flex: -1 }}> */}
-        <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+        <View style={{ position: "absolute", bottom: 0, width: "100%", zIndex: 1 }}>
           <MenuBottom navigation={navigation} />
         </View>
         {/* </View> */}
       </View>
+
     </View>
   );
 };
