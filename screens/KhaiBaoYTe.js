@@ -10,12 +10,16 @@ import {
     Alert,
     TextInput,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    Modal,
+
 } from 'react-native';
 function goBack() { }
 export default function KhaiBaoYTe({ navigation }) {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+    const [showPopUp, setshowPopUp] = useState(false);
+    const [isOK, setIsOK] = useState(false);
 
     return (
         <ScrollView>
@@ -417,19 +421,65 @@ export default function KhaiBaoYTe({ navigation }) {
                             alignItems: 'center',
                             textAlign: 'center',
                             marginBottom: 30
-                        }}>
+                        }}
+                        onPress={() => { setshowPopUp(true); setIsOK(true) }}
+                    >
                         <Text
                             style={{
                                 color: '#ffffff',
                                 padding: 15,
                                 fontSize: FONT_SIZE,
                                 paddingHorizontal: 25,
-                            }}>
+                            }}
+                        >
                             Gửi tờ khai
                         </Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.centeredView}>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={showPopUp}
+                        onRequestClose={() => {
+                            setshowPopUp(false);
+                        }}
+                    >
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <View style={styles.welcomeView}>
+
+                                    <Text style={[styles.location, { color: isOK ? "white" : "black" }]}> {isOK ? "Gửi phản ánh thành công" : "Vui lòng không để trống thông tin!"}</Text>
+                                    <TouchableOpacity
+                                        style={{
+                                            // width: 'fit-content',
+                                            borderColor: '#30B55C',
+                                            backgroundColor: '#b3b3b3',
+                                            borderRadius: 30,
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            textAlign: 'center',
+                                            marginTop: 40
+                                        }}
+                                        onPress={() => { setshowPopUp(false); if (isOK) navigation.goBack() }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: '#ffffff',
+                                                padding: 10,
+                                                fontSize: FONT_SIZE,
+                                                paddingHorizontal: 20,
+                                            }}>
+                                            Xác nhận
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                </View>
             </View>
+
         </ScrollView>
     );
 }
@@ -466,5 +516,91 @@ const styles = StyleSheet.create({
         width: 1,
         height: 90,
         borderColor: '#9F9F9F',
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        marginTop: 22,
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 25,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    option: {
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: "#b3b3b3",
+        marginBottom: 20,
+        paddingVertical: 10,
+        flexDirection: "row",
+    },
+    icon: {},
+    optionInformation: {},
+    optionName: {
+        marginVertical: 10,
+        fontWeight: "bold",
+    },
+    welcomeView: {
+        alignItems: "center",
+        padding: 20,
+        backgroundColor: "#30B55C",
+        borderRadius: 10,
+    },
+    buttonView: {
+        alignItems: "center",
+        marginBottom: 20,
+        flex: 10,
+    },
+    city: {
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    welcome: {
+        fontSize: 18,
+        color: "#ededed",
+        paddingVertical: 10,
+    },
+    location: {
+        fontWeight: "bold",
+        fontSize: 20,
+        color: "white",
+        textAlign: "center"
+    },
+    button: {
+        borderRadius: 20,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        elevation: 2,
+        width: "100%",
+    },
+    buttonOpen: {
+        backgroundColor: "#F194FF",
+    },
+    buttonClose: {
+        backgroundColor: "#b3b3b3",
+    },
+    buttonSubmit: {
+        backgroundColor: "#30B55C",
+    },
+    textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: "center",
     },
 });
