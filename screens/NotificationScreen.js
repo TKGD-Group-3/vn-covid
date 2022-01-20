@@ -4,22 +4,24 @@ import { Icon } from "react-native-elements";
 import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
 import MenuBottom from "../components/MenuBottom";
+import CovidCard from "../components/CovidCard";
 
 const NotificationScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <ScrollView>
-    <View
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        height: "100%",
-      }}
-    >
-      <View style={{ display: "flex", flexDirection: "column" }}>
-        <View style={styles.covidCard}>
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
+        }}
+      >
+        <View style={{ display: "flex", flexDirection: "column" }}>
+          <CovidCard />
+          {/* <View style={styles.covidCard}>
           <UserPopup
             visible={modalVisible}
             handleClose={() => setModalVisible(false)}
@@ -51,51 +53,51 @@ const NotificationScreen = ({ navigation }) => {
           <View style={{ marginBottom: -20, marginTop: 10 }}>
             <Text style={{ color: "white", fontStyle: "italic" }}>Click vào mã Qr để xem thông tin chi tiết</Text>
           </View>
-        </View>
-        <View
-          style={{
-            margin: 5,
-            backgroundColor: "white",
-            borderRadius: 20,
-            borderWidth: 2,
-            borderColor: "#b3b3b3",
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            shadowOpacity: 0.25,
-            shadowRadius: 4,
-            elevation: 5,
-          }}
-        >
-          <View style={{ marginTop: 10 }}>
-            <View style={{ alignItems: "center", margin: 5 }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  width: "80%",
-                }}
-              >
-                <Icon
-                  style={{ width: 25, height: 25, marginRight: 10 }}
-                  name="circle"
-                  type="font-awesome"
-                  color="#00ff22"
-                />
-                <Text>14:07 26/11/2021</Text>
+        </View> */}
+          <View
+            style={{
+              margin: 5,
+              backgroundColor: "white",
+              borderRadius: 20,
+              borderWidth: 2,
+              borderColor: "#b3b3b3",
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 4,
+              elevation: 5,
+            }}
+          >
+            <View style={{ marginTop: 10 }}>
+              <View style={{ alignItems: "center", margin: 5 }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    width: "80%",
+                  }}
+                >
+                  <Icon
+                    style={{ width: 25, height: 25, marginRight: 10 }}
+                    name="circle"
+                    type="font-awesome"
+                    color="#00ff22"
+                  />
+                  <Text>14:07 26/11/2021</Text>
+                </View>
+              </View>
+              <View style={styles.center}>
+                <Text style={styles.notification}>
+                  Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào
+                  thời gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
+                </Text>
               </View>
             </View>
-            <View style={styles.center}>
-              <Text style={styles.notification}>
-                Agribank chi nhánh Phước Bình - Bình Phước có ghi nhận F0 vào
-                thời gian gần đây. Vui lòng liên hệ y tế địa phương sớm nhất.
-              </Text>
-            </View>
           </View>
-        </View>
-        <View
+          {/* <View
           style={{
             margin: 5,
             marginTop: 0,
@@ -138,15 +140,16 @@ const NotificationScreen = ({ navigation }) => {
               </Text>
             </View>
           </View>
+        </View> */}
         </View>
-      </View>
-      
 
-      {/* <View style={{ flex: -1 }}> */}
-      <MenuBottom navigation={navigation} />
-      {/* </View> */}
+        {/* <View style={{ flex: -1 }}> */}
+        <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+          <MenuBottom navigation={navigation} />
+        </View>
+        {/* </View> */}
+      </View>
     </View>
-    </ScrollView>
   );
 };
 

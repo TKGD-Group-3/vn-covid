@@ -51,7 +51,7 @@ export default function PhanAnh({ navigation }) {
                     }}
                     multiline={true}
                     placeholder="Nhập nội dung phản ánh..."
-                    keyboardType="numeric"
+                    keyboardType="default"
                 />
             </View>
             <View

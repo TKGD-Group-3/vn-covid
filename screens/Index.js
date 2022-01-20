@@ -14,105 +14,80 @@ import QRCode from "react-native-qrcode-svg";
 import UserPopup from "../components/UserPopup";
 import MenuBottom from "../components/MenuBottom";
 import Popup from "../components/Popup";
+import CovidCard from "../components/CovidCard";
 
 const Index = ({ navigation }) => {
   const { hasScanned, setHasScanned } = useContext(QRCodeScannedContext);
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <ScrollView>
-      <View style={styles.covidCard}>
-        <UserPopup
-          visible={modalVisible}
-          handleClose={() => setModalVisible(false)}
-        />
-        <Text style={styles.covidCardText}>THẺ THÔNG TIN COVID</Text>
-        <Text style={styles.covidCardText}>P4, Q5, TP.HCM</Text>
-        <Pressable
-          onPress={() => setModalVisible(true)}
-          style={{ marginVertical: 8 }}
-        >
-          <View
-            style={{ backgroundColor: "white", padding: 20, borderRadius: 45 }}
-          >
-            <QRCode value="hello world" size={200} />
+    <View style={{ flex: 1 }}>
+      <CovidCard />
+
+      <View>
+        <View>
+          <Text style={styles.subHeader}>Thông tin ca nhiễm Covid - 19</Text>
+          <View style={{ display: "flex", marginHorizontal: 30 }}>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                textAlign: "center",
+              }}
+            >
+              <Text style={styles.tableContentText_1}></Text>
+              <Text style={styles.tableHeaderText}>Hôm qua</Text>
+              <Text style={styles.tableHeaderText}>Hôm nay</Text>
+            </View>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                textAlign: "center",
+              }}
+            >
+              <Text style={styles.tableContentText_1}>Phường 4</Text>
+              <Text style={styles.tableContentText}>123</Text>
+              <Text style={styles.tableContentText}>456</Text>
+            </View>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                textAlign: "center",
+              }}
+            >
+              <Text style={styles.tableContentText_1}>Quận 5</Text>
+              <Text style={styles.tableContentText}>456</Text>
+              <Text style={styles.tableContentText}>741</Text>
+            </View>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                textAlign: "center",
+              }}
+            >
+              <Text style={styles.tableContentText_1}>TP.HCM</Text>
+              <Text style={styles.tableContentText}>789</Text>
+              <Text style={styles.tableContentText}>582</Text>
+            </View>
           </View>
-        </Pressable>
-        <Text style={styles.covidCardText}>Nguyễn Văn A</Text>
-        <Text style={styles.covidCardText}>Nam - 199x</Text>
-        <View style={styles.vaccine}>
-          <Icon
-            style={{ width: 25, height: 25 }}
-            name="check"
-            type="font-awesome"
-            color="white"
-          />
-          <Text style={styles.covidCardTextSmall}>Đã tiêm 2 mũi vaccine</Text>
-        </View>
-        <View style={{ marginBottom: -20, marginTop: 10 }}>
-          <Text style={{ color: "white", fontStyle: "italic" }}>
-            Click vào mã Qr để xem thông tin chi tiết
-          </Text>
+          <View style={styles.center}>
+            <Text style={styles.notification}>
+              Nơi bạn đang sống đang là{" "}
+              <Text style={{ fontWeight: "bold" }}>vùng đỏ</Text>. Yêu cầu người
+              dân chỉ ra khỏi nhà trong trường hợp thật sự cần thiết.
+            </Text>
+          </View>
         </View>
       </View>
-      <View style={{ flex: 1 }}>
-        <Text style={styles.subHeader}>Thông tin ca nhiễm Covid - 19</Text>
-        <View style={{ display: "flex", marginHorizontal: 30 }}>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              textAlign: "center",
-            }}
-          >
-            <Text style={styles.tableContentText_1}></Text>
-            <Text style={styles.tableHeaderText}>Hôm qua</Text>
-            <Text style={styles.tableHeaderText}>Hôm nay</Text>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              textAlign: "center",
-            }}
-          >
-            <Text style={styles.tableContentText_1}>Phường 4</Text>
-            <Text style={styles.tableContentText}>123</Text>
-            <Text style={styles.tableContentText}>456</Text>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              textAlign: "center",
-            }}
-          >
-            <Text style={styles.tableContentText_1}>Quận 5</Text>
-            <Text style={styles.tableContentText}>456</Text>
-            <Text style={styles.tableContentText}>741</Text>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              textAlign: "center",
-            }}
-          >
-            <Text style={styles.tableContentText_1}>TP.HCM</Text>
-            <Text style={styles.tableContentText}>789</Text>
-            <Text style={styles.tableContentText}>582</Text>
-          </View>
-        </View>
-        <View style={styles.center}>
-          <Text style={styles.notification}>
-            Nơi bạn đang sống đang là vùng đỏ. Yêu cầu người dân chỉ
-            ra khỏi nhà trong trường hợp thật sự cần thiết.
-          </Text>
-        </View>
+      <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+        <MenuBottom navigation={navigation} />
       </View>
       <Popup
         visible={hasScanned}
@@ -122,8 +97,7 @@ const Index = ({ navigation }) => {
         }}
         navigateToHome={() => setHasScanned(false)}
       />
-      <MenuBottom navigation={navigation} />
-    </ScrollView>
+    </View>
   );
 };
 
@@ -176,10 +150,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     width: "80%",
     marginTop: 10,
+    marginBottom: -10,
   },
   covidCard: {
     paddingTop: 5,
-    paddingBottom: 20,
+    paddingBottom: 10,
     backgroundColor: "#30B55C",
     alignItems: "center",
   },
