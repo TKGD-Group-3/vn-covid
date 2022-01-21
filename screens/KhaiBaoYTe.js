@@ -490,33 +490,35 @@ export default function KhaiBaoYTe({ navigation }) {
                     >
                         <View style={styles.centeredView}>
                             <View style={styles.modalView}>
-                                <View style={styles.welcomeView}>
+                                <View style={[styles.welcomeView, { backgroundColor: isOK ? "#30B55C" : "#f44336" }]}>
 
-                                    <Text style={[styles.location, { color: isOK ? "white" : "black" }]}> {isOK ? "Khai báo y tế thành công!" : "Vui lòng không để trống thông tin!"}</Text>
-                                    <TouchableOpacity
-                                        style={{
-                                            // width: 'fit-content',
-                                            borderColor: '#30B55C',
-                                            backgroundColor: '#b3b3b3',
-                                            borderRadius: 30,
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            textAlign: 'center',
-                                            marginTop: 40
-                                        }}
-                                        onPress={() => { setshowPopUp(false); if (isOK) navigation.goBack() }}
-                                    >
-                                        <Text
-                                            style={{
-                                                color: '#ffffff',
-                                                padding: 10,
-                                                fontSize: FONT_SIZE,
-                                                paddingHorizontal: 20,
-                                            }}>
-                                            Xác nhận
-                                        </Text>
-                                    </TouchableOpacity>
+                                    <Text style={[styles.location, { color: isOK ? "white" : "white", paddingVertical: isOK ? 15 : 0 }]}> {isOK ? "Khai báo y tế thành công" : "Vui lòng không để trống thông tin!"}</Text>
+
                                 </View>
+                                <TouchableOpacity
+                                    style={{
+                                        // width: 'fit-content',
+                                        borderColor: '#30B55C',
+                                        backgroundColor: '#b3b3b3',
+                                        borderRadius: 30,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        textAlign: 'center',
+                                        marginTop: 40,
+                                        width: "60%"
+                                    }}
+                                    onPress={() => { setshowPopUp(false); if (isOK) navigation.goBack() }}
+                                >
+                                    <Text
+                                        style={{
+                                            color: '#ffffff',
+                                            padding: 10,
+                                            fontSize: FONT_SIZE,
+                                            paddingHorizontal: 20,
+                                        }}>
+                                        Xác nhận
+                                    </Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </Modal>
@@ -571,6 +573,9 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 25,
         shadowColor: "#000",
+        alignItems: "center",
+        justifyContent: "center",
+        alignContent: "center",
         shadowOffset: {
             width: 0,
             height: 2,
