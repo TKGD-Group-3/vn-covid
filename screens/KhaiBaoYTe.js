@@ -492,7 +492,7 @@ export default function KhaiBaoYTe({ navigation }) {
                             <View style={styles.modalView}>
                                 <View style={styles.welcomeView}>
 
-                                    <Text style={[styles.location, { color: isOK ? "white" : "black" }]}> {isOK ? "Gửi phản ánh thành công" : "Vui lòng không để trống thông tin!"}</Text>
+                                    <Text style={[styles.location, { color: isOK ? "white" : "black" }]}> {isOK ? "Khai báo y tế thành công!" : "Vui lòng không để trống thông tin!"}</Text>
                                     <TouchableOpacity
                                         style={{
                                             // width: 'fit-content',
